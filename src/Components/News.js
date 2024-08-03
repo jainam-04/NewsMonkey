@@ -10,7 +10,7 @@ const News = (props) => {
       const [loading, setLoading] = useState(true)
       const [page, setPage] = useState(1)
       const [totalResults, setTotalResults] = useState(0)
-      const backendUrl = 'https://news-monkey-vert.vercel.app';
+      const backendUrl = 'https://news-monkey-xi-ecru.vercel.app';
 
       const capitalizeFirstLetter = (string) => {
             return string.charAt(0).toUpperCase() + string.slice(1);
