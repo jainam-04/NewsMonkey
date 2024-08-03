@@ -10,6 +10,7 @@ const News = (props) => {
       const [loading, setLoading] = useState(true)
       const [page, setPage] = useState(1)
       const [totalResults, setTotalResults] = useState(0)
+      const backendUrl = 'https://news-monkey-vert.vercel.app';
 
       const capitalizeFirstLetter = (string) => {
             return string.charAt(0).toUpperCase() + string.slice(1);
@@ -17,7 +18,7 @@ const News = (props) => {
 
       const updateNews = async () => {
             props.setProgress(10);
-            const url = `http://localhost:5000/api/news?country=${props.country}&category=${props.category}&page=${page}&pageSize=${props.pageSize}`;
+            const url = `${backendUrl}/api/news?country=${props.country}&category=${props.category}&page=${page}&pageSize=${props.pageSize}`;
             setLoading(true);
             try {
                   let data = await fetch(url);
@@ -45,7 +46,7 @@ const News = (props) => {
 
 
       const fetchMoreData = async () => {
-            const url = `http://localhost:5000/api/news?country=${props.country}&category=${props.category}&page=${page}&pageSize=${props.pageSize}`;
+            const url = `${backendUrl}/api/news?country=${props.country}&category=${props.category}&page=${page}&pageSize=${props.pageSize}`;
             setPage(page + 1);
             try {
                   let data = await fetch(url);
